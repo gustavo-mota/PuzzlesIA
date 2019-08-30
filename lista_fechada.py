@@ -1,3 +1,5 @@
+from noh import Noh
+from Matriz import Matriz
 #dicionário
 #o índice é o vetor da matriz
 #o volum é o nó
@@ -10,4 +12,25 @@ class Lista_Fechada :
         self.dict={}
     #adiciona elemento
     def __add__(self, Noh=None):
-        indice = Noh.__matrVetor__()
+        #indice é a matriz em forma numerica
+        #a função retorna em int e a atribuição converte para o dict
+        indice = str(Noh.__matrizVetor__())
+        self.dict[indice] = Noh
+    def __verifica__(self, chave): #chave deve vir já como string
+        #verifica se retornou objeto no
+        if(type(self.dict.__retornaNoh__(chave))!=int):
+            return 1 #no existe
+        #retornou inteiro
+        else:
+            return 0 #no não existe
+
+
+    #retorno de nó
+    def __retornaNoh__(self, chave): #manda a chave já em forma de string
+        #retorna o objeto
+        try:
+            return self.dict[chave]
+        #retorna inteiro
+        except NaoVisitado:
+            return 0
+
