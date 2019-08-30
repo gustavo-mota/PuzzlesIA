@@ -184,3 +184,11 @@ matri = Matriz()
 matri.__matrizAtribuiLinhas__([0,1,2], [3,4,5],[6,7,8])
 no = Noh(matri)
 print(type(str(no.__matrizVetor__())))
+
+#teste 5
+lista = [0, 0, 1]
+lista2 = []
+lista2.append(copy.deepcopy(lista))
+print(lista2)
+lista[0] = -5
+print(lista2)
