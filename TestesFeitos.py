@@ -192,3 +192,30 @@ lista2.append(copy.deepcopy(lista))
 print(lista2)
 lista[0] = -5
 print(lista2)
+
+#teste 6
+matPai = Matriz()
+matPai.__matrizAtribuiLinhas__([1, 1, 1], [2, 3, 4], [5, 3, 3])
+matFilho = Matriz()
+matFilho.__matrizAtribuiLinhas__([1, 2, 3], [4, 0, 6], [7, 8, 9])
+pai = Noh(matPai)
+no = Noh(matFilho, pai)
+'''
+#print(type(no))
+#no.__printMatrizArmazenada__()
+listaFechada = Lista_Fechada()
+listaFechada.__add__(no)
+#listaFechada.__retornaNoh__(str(no.__matrizVetor__())).__printMatrizArmazenada__()
+#matr = copy.deepcopy(pai.__matrizArmazenada__())
+print(matPai.__matrizPosicaoValor__(1,2))
+'''
+no.__matrizArmazenada__().__printMatriz__()
+no.__matrizArmazenada__().__deslocaZeroCima__().__printMatriz__()
+# matr = copy.deepcopy(matPai)
+# print(type(matr))
+# print(type(no.__matrizArmazenada__().__matrizPosicaoValor__(1,2)))
+
+#teste 7
+lista = Funcao_Sucessor(no)
+for i in range(len(lista)):
+    lista[i].__printMatriz__()

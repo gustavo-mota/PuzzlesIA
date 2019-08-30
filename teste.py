@@ -1,6 +1,7 @@
 from noh import Noh
 from Matriz import Matriz
 from lista_fechada import Lista_Fechada
+from funcao_sucessor import *
 import copy
 
 '''
@@ -9,13 +10,13 @@ import copy
 '''
 
 def main():
-    '''
     matPai = Matriz()
     matPai.__matrizAtribuiLinhas__([1,1,1],[2,3,4],[5,3,3])
     matFilho = Matriz()
-    matFilho.__matrizAtribuiLinhas__([1,2,3],[4,5,6],[7,8,9])
+    matFilho.__matrizAtribuiLinhas__([1,2,3],[4,0,6],[7,8,9])
     pai = Noh(matPai)
     no = Noh(matFilho, pai)
+    '''
     #print(type(no))
     #no.__printMatrizArmazenada__()
     listaFechada = Lista_Fechada()
@@ -25,4 +26,7 @@ def main():
     print(matPai.__matrizPosicaoValor__(1,2))
     '''
 
+    #matr = copy.deepcopy(matPai)
+    #print(type(matr))
+    #print(type(no.__matrizArmazenada__().__matrizPosicaoValor__(1,2)))
 main()

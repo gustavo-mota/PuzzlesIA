@@ -78,36 +78,36 @@ class Matriz:
     #o teste é por contra-exemplo
     def __moveCima__(self):
         if(
-            matr.__matrizPosicaoValor__(0,0) == 0 or
-            matr.__matrizPosicaoValor__(0,1) == 0 or
-            matr.__matrizPosicaoValor__(0,2) == 0
+                (self.__matrizPosicaoValor__(0,0)) == 0 or
+                (self.__matrizPosicaoValor__(0,1)) == 0 or
+                (self.__matrizPosicaoValor__(0,2)) == 0
         ):
             return 0
         else:
             return 1
     def __moveBaixo__(self):
         if(
-            matr.__matrizPosicaoValor__(2,0) == 0 or
-            matr.__matrizPosicaoValor__(2,1) == 0 or
-            matr.__matrizPosicaoValor__(2,2) == 0
+            self.__matrizPosicaoValor__(2,0) == 0 or
+            self.__matrizPosicaoValor__(2,1) == 0 or
+            self.__matrizPosicaoValor__(2,2) == 0
         ):
             return 0
         else:
             return 1
     def __moveDir__(self):
         if(
-            matr.__matrizPosicaoValor__(0,2) == 0 or
-            matr.__matrizPosicaoValor__(1,2) == 0 or
-            matr.__matrizPosicaoValor__(2,2) == 0
+            self.__matrizPosicaoValor__(0,2) == 0 or
+            self.__matrizPosicaoValor__(1,2) == 0 or
+            self.__matrizPosicaoValor__(2,2) == 0
         ):
             return 0
         else:
             return 1
     def __moveEsq__(self):
         if(
-            matr.__matrizPosicaoValor__(0,0) == 0 or
-            matr.__matrizPosicaoValor__(1,0) == 0 or
-            matr.__matrizPosicaoValor__(2,0) == 0
+            self.__matrizPosicaoValor__(0,0) == 0 or
+            self.__matrizPosicaoValor__(1,0) == 0 or
+            self.__matrizPosicaoValor__(2,0) == 0
         ):
             return 0
         else:
@@ -115,65 +115,67 @@ class Matriz:
     #fim das funções de teste de movimento
     #move
     def __deslocaZeroCima__(self):
-        matrizTemporaria = copy.deepcopy(self.__matriz)
+        #ta copiando em forma de lista
+        matrizTemporaria = copy.deepcopy(self) #agora sim
         linha = -1
         coluna = -1
+        #print(type(matrizTemporaria), 'aqui')
         #procura
-        for i in (1,2):
-            for j in (0,2):
-                if(matrizTemporaria.__matrizPosicaoValor__(i,j) == 0):
+        for i in range(1,3):
+            for j in range(0,3):
+                if((matrizTemporaria.__matrizPosicaoValor__(i,j)) == 0):
                     linha = i
                     coluna = j
         #coleta variável no lugar onde zero se deloca
-        var = matrizTemporaria.__matrizPosicaoValor(linha-1,coluna)
+        var = matrizTemporaria.__matrizPosicaoValor__(linha-1,coluna)
         #modifica
         matrizTemporaria.__matrizEditaPosicao__(linha-1,coluna,0)
         matrizTemporaria.__matrizEditaPosicao__(linha, coluna, var)
         return copy.deepcopy(matrizTemporaria)
     def __deslocaZeroBaixo__(self):
-        matrizTemporaria = copy.deepcopy(self.__matriz)
+        matrizTemporaria = copy.deepcopy(self)
         linha = -1
         coluna = -1
         #procura
-        for i in (0,1):
-            for j in (0,2):
+        for i in range(0,2):
+            for j in range(0,3):
                 if(matrizTemporaria.__matrizPosicaoValor__(i,j) == 0):
                     linha = i
                     coluna = j
         #coleta variável no lugar onde zero se deloca
-        var = matrizTemporaria.__matrizPosicaoValor(linha+1,coluna)
+        var = matrizTemporaria.__matrizPosicaoValor__(linha+1,coluna)
         #modifica
         matrizTemporaria.__matrizEditaPosicao__(linha+1,coluna,0)
         matrizTemporaria.__matrizEditaPosicao__(linha, coluna, var)
         return copy.deepcopy(matrizTemporaria)
     def __deslocaZeroDireita__(self):
-        matrizTemporaria = copy.deepcopy(self.__matriz)
+        matrizTemporaria = copy.deepcopy(self)
         linha = -1
         coluna = -1
         #procura
-        for i in (0,2):
-            for j in (0,1):
+        for i in range(0,3):
+            for j in range(0,2):
                 if(matrizTemporaria.__matrizPosicaoValor__(i,j) == 0):
                     linha = i
                     coluna = j
         #coleta variável no lugar onde zero se deloca
-        var = matrizTemporaria.__matrizPosicaoValor(linha,coluna+1)
+        var = matrizTemporaria.__matrizPosicaoValor__(linha,coluna+1)
         #modifica
         matrizTemporaria.__matrizEditaPosicao__(linha,coluna+1,0)
         matrizTemporaria.__matrizEditaPosicao__(linha, coluna, var)
         return copy.deepcopy(matrizTemporaria)
     def __deslocaZeroEsquerda__(self):
-        matrizTemporaria = copy.deepcopy(self.__matriz)
+        matrizTemporaria = copy.deepcopy(self)
         linha = -1
         coluna = -1
         #procura
-        for i in (1,2):
-            for j in (1,2):
+        for i in range(1,3):
+            for j in range(1,3):
                 if(matrizTemporaria.__matrizPosicaoValor__(i,j) == 0):
                     linha = i
                     coluna = j
         #coleta variável no lugar onde zero se deloca
-        var = matrizTemporaria.__matrizPosicaoValor(linha,coluna-1)
+        var = matrizTemporaria.__matrizPosicaoValor__(linha,coluna-1)
         #modifica
         matrizTemporaria.__matrizEditaPosicao__(linha,coluna-1,0)
         matrizTemporaria.__matrizEditaPosicao__(linha, coluna, var)

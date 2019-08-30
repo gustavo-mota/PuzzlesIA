@@ -3,19 +3,26 @@ from Matriz import Matriz #toda operação d ematriz deve cincuir copy
 import copy
 #from funcao_sucessor import *
 
-def Funcao_Sucessor(Noh, Lista_Fechada):
+def Funcao_Sucessor(Noh):
     #você sabe que só existe um só 0 nele
     #necessário usar o copy para modificar sem alterar o original
     matr = copy.deepcopy(Noh.__matrizArmazenada__())
     lista = []
-    lista.append(
-        {
-            matr.__moveCima__() == 1 : matr.__deslocaZeroCima__(),
-            matr.__moveBaixo__() == 1: matr.__deslocaZeroBaixo__() ,
-            matr.__moveDir__() == 1 : matr.__deslocaZeroDireita__() ,
-            matr.__moveEsq__() == 1 : matr.__deslocaZeroEsquerda__()
-        }[matr]
-    )
+    #ifs testados
+    #saída testada
+    if(matr.__moveCima__() == 1):
+        lista.append(matr.__deslocaZeroCima__())
+        print("moveu cima")
+    if(matr.__moveBaixo__() == 1):
+        lista.append(matr.__deslocaZeroBaixo__())
+        print("moveu baixo")
+    if(matr.__moveDir__() == 1):
+        lista.append(matr.__deslocaZeroDireita__())
+        print("moveu direita")
+    if(matr.__moveEsq__() == 1):
+        lista.append(matr.__deslocaZeroEsquerda__())
+        print("moveu esquerda")
+
     for i in lista:
         if(
             #deve receber lista fechada
