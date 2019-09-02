@@ -60,7 +60,7 @@ class Matriz:
     def __printMatriz__(self):
         printMatriz(self.__matriz)
     #clona a matriz
-    def __copiaMatriz__(self, Matriz):
+    def __copiaMatriz__(self, Matriz): #uma matriz é repassada para ser copiada
         matrizClone(self, Matriz)
     #faz uma matriz virar um vetor numérico
     #retorna uma linha especícifca
@@ -187,5 +187,5 @@ class Matriz:
         linha2 = self.__matriz[1]
         linha3 = self.__matriz[2]
         #transforma cada linha em uma string
-        return int(listatoString(linha1) + listatoString(linha2) + listatoString(linha3))
+        return (listatoString(linha1) + listatoString(linha2) + listatoString(linha3))
         #experimente o retorn sem o int()

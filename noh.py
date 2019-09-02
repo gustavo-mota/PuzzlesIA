@@ -1,16 +1,17 @@
 from Matriz import Matriz
 #no
 class Noh :
-    def __init__(self, matr, pai=None, um=None, dois=None, tres=None, quatro=None):
+    def __init__(self, matr, heuristica, pai=None, um=None, dois=None, tres=None, quatro=None):
         #eu não sei o que tou fazendo aqui
         #agora sim
+        self.matr = Matriz()
+        self.matr.__copiaMatriz__(matr)  # estou desconfiado
+        self.heuristica = heuristica
         self.pai = pai
         self.um = um
         self.dois = dois
         self.tres = tres
         self.quatro = quatro
-        self.matr = Matriz()
-        self.matr.__copiaMatriz__(matr) #estou desconfiado
         '''
         if(self.matr == matr):
             self.matr = matr

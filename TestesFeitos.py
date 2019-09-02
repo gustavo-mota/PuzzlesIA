@@ -219,3 +219,28 @@ no.__matrizArmazenada__().__deslocaZeroCima__().__printMatriz__()
 lista = Funcao_Sucessor(no)
 for i in range(len(lista)):
     lista[i].__printMatriz__()
+
+#teste 8
+
+matPai = Matriz()
+matPai.__matrizAtribuiLinhas__([1, 1, 1], [2, 3, 4], [5, 3, 3])
+matIrm = Matriz()
+matIrm.__matrizAtribuiLinhas__([1, 2, 3], [0, 4, 6], [7, 8, 9])
+matFilho = Matriz()
+matFilho.__matrizAtribuiLinhas__([1, 2, 3], [4, 0, 6], [7, 8, 9])
+pai = Noh(matPai, 0)
+irmao = Noh(matIrm, 0)
+no = Noh(matFilho, 0, pai)
+listaFechada = Lista_Fechada()
+listaFechada.__add__(irmao)
+listaFechada.__add__(no)
+listaFechada.__add__(pai)
+lista = Funcao_Sucessor(no, listaFechada)
+j=1
+for i in lista:
+    i.__printMatriz__()
+    print("matriz", j)
+    j += 1
+listaFechada.__printListaFechada__()
+if(listaFechada.__verifica__('123046789')):
+    print("tem")
