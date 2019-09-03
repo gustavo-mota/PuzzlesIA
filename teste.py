@@ -1,8 +1,9 @@
-from noh import Noh
+from noh import *
 from Matriz import Matriz
 from lista_fechada import Lista_Fechada
 from funcao_sucessor import *
 from Heuristica import *
+from queue import *
 import copy
 
 '''
@@ -27,7 +28,7 @@ def main():
     #listaFechada.__retornaNoh__(str(no.__matrizVetor__())).__printMatrizArmazenada__()
     #matr = copy.deepcopy(pai.__matrizArmazenada__())
     print(matPai.__matrizPosicaoValor__(1,2))
-    '''
+    
     matPai = Matriz()
     matPai.__matrizAtribuiLinhas__([1, 1, 1], [2, 3, 4], [5, 3, 3])
     matIrm = Matriz()
@@ -36,9 +37,14 @@ def main():
     matFilho.__matrizAtribuiLinhas__([1, 2, 6], [4, 0, 3], [7, 8, 5])
     pai = Noh(matPai, 0)
     no = Noh(matFilho, 0, pai)
-    print(Heuristica(no))
-    no.__printMatrizArmazenada__()
+
+    #print(Heuristica(no))
+    #no.__printMatrizArmazenada__()
     #matr = copy.deepcopy(matPai.__retornaMatriz__())
     #print(type(matr))
     #print(type(no.__matrizArmazenada__().__matrizPosicaoValor__(1,2)))
+    '''
+
+
+    #print(lista)
 main()

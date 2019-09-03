@@ -181,6 +181,14 @@ class Matriz:
         matrizTemporaria.__matrizEditaPosicao__(linha, coluna, var)
         return copy.deepcopy(matrizTemporaria)
     #fim das funções de deslocamento
+    def __testaMatrizSolucao__(self):
+        if(
+            self.__matriz[0] == [1,2,3] and
+            self.__matriz[1] == [4,5,6] and
+            self.__matriz[2] == [7,8,0]
+        ):
+            return 1
+        return 0
     #retorna a matriz em vetor
     def __matrizVetor__(self):
         linha1 = self.__matriz[0]
