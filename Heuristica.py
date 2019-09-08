@@ -50,6 +50,7 @@ def Heuristica(Noh):
     #fim salva as posições
     #gera dicionario
     dictPosicoesValorAtual = dict(zip(listaTodosVal, listaTodosIndices)) #cada valor e sua posição
+    print(dictPosicoesValorAtual)
     #Calcula a distancia de cada valor
     for i in range(0,9):
         if (i==0):

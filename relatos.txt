@@ -1,0 +1,10 @@
+havia encontrado problema quando criei a funçãode adicionar nós na lista aberta
+antes aheurística era zero por padrão
+o problema se desenrolava que ao adiconar o no raiz, dava certo, o que vinha com heuristica zero
+mas depois não havi anada que fizesse a heuristica e por consequencia a chave atualizar caso um noov
+fosse adicionado, portanto em vez de manter a raiz vindo com heuristica zero
+ela passa a ter uma heuristica calculada na criação na Main()
+e a função agora tem um valor alto demais para padrão
+sempre vai mudar ao adicionar raiz, e desde então s efor o caso
+
+espero  que de certo pois ao remover deve atualiar para dentre os de dentro

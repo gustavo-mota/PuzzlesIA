@@ -169,13 +169,23 @@ class Matriz:
         linha = -1
         coluna = -1
         #procura
-        for i in range(1,3):
+        for i in range(0,3): #correção 1 para 0  e só fazia a partir da linha 1
+            print("sou i e ",i)
             for j in range(1,3):
+                print("sou j e ",j)
                 if(matrizTemporaria.__matrizPosicaoValor__(i,j) == 0):
+                    print("encontrou ")
                     linha = i
                     coluna = j
+                    #laço continua após encontrar
+        print("matriz.py: desloca zero esquerda", "\n",
+              "coordenadas zero são ", i, " ", j)
         #coleta variável no lugar onde zero se deloca
+        #experimenta remover essa linha para ver o erro do esquerda
+        #movimentando o 6 e o 8 e apagando  o 6
         var = matrizTemporaria.__matrizPosicaoValor__(linha,coluna-1)
+        print("matriz.py: desloca zero esquerda","\n",
+              "variavel para deslocar zero é ", var)
         #modifica
         matrizTemporaria.__matrizEditaPosicao__(linha,coluna-1,0)
         matrizTemporaria.__matrizEditaPosicao__(linha, coluna, var)
