@@ -61,33 +61,26 @@ def initial_generate(size):  # array
     return numpy.array(range(0, size))
 
 
+
 def explorer(size):
-    lista = [initial_generate(size)]
-    solved = False
-    for j in range(1000):
-        for i in range(len(lista)):
-            current = lista[i]
-            current_collision = cost_collision(current, size)
-            new = sort_change(current)
-            newest_collision = cost_collision(new, size)
-            if newest_collision == 0:
-                solution(new)
-                solved = True
-                break
-            elif newest_collision < current_collision:
-                print("nao")
-                lista[i] = new.copy()
-            else:
-                probability = math.e**(current_collision - newest_collision)
-                rand = random.uniform(0, 1)
-                if rand <= probability:
-                    print("aqui")
-                    lista.append(new)
-        if solved:
+    current = initial_generate(size)
+    for i in range(50000):
+        new = sort_change(current)
+        current_collision = cost_collision(current, size)
+        newest_collision = cost_collision(new, size)
+        print(current_collision, newest_collision)
+        if newest_collision == 0:
+            solution(new)
             break
+        elif newest_collision < current_collision:
+            current = new.copy()
+        else:
+            probability = math.exp(current_collision - newest_collision)
+            rand = random.uniform(0, 1)
+            if rand <= probability:
+                current = new.copy()
     print(newest_collision)
     solution(new)
-
 
 explorer(size)
 #FormigasSolucao(sort_change(initial_generate(4)))
