@@ -17,34 +17,13 @@ def solution(matriz):
 
 
 def sort_change(matriz):  # array
-    # matriz_change = matriz.copy()
-    # sorteio das colunas diferentes
-    #numpy.random.shuffle(matriz)
     column_one = random.randint(0, matriz.size - 1)
     column_two = random.randint(0, matriz.size - 1)
     # alteração das colunas
     var = matriz[column_one]
     matriz[column_one] = matriz[column_two]
     matriz[column_two] = var
-    '''numbers = list(range(0, len(matriz)))
-    column_one = random.choice(numbers)
-    numbers.remove(column_one)
-    column_two = random.choice(numbers)
-    # alteração das colunas
-    var = matriz[column_one]
-    matriz[column_one] = matriz[column_two]
-    matriz[column_two] = var'''
     return matriz
-
-    '''matriz_change = matriz.copy()
-    numbers = list(range(0, len(matriz)))
-    column_one = random.choice(numbers)
-    numbers.remove(column_one)
-    column_two = random.choice(numbers)
-    var = numpy.copy(matriz_change[:, column_one])
-    matriz_change[:, column_one] = matriz_change[:, column_two]
-    matriz_change[:, column_two] = var
-    return matriz_change'''
 
 
 def cost_collision(matriz, size):  # array
@@ -83,6 +62,3 @@ def explorer(size):
     solution(new)
 
 explorer(size)
-#FormigasSolucao(sort_change(initial_generate(4)))
-#print(cost_collision(initial_generate(4), 4))
-#print(sort_change(initial_generate(size)))
