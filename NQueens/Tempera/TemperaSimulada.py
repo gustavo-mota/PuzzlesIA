@@ -38,32 +38,7 @@ def initial_generate(size):  # array
     return numpy.identity(size)
 
 
-
 def explorer(size):
-    lista = [initial_generate(size)]
-    solved = False
-    while True:
-        for i in range(len(lista)):
-            current = lista[i]
-            current_collision = cost_collision(current, size)
-            new = sort_change(current)
-            newest_collision = cost_collision(new, size)
-            if newest_collision == 0:
-                solution(new)
-                solved = True
-                break
-            elif newest_collision < current_collision:
-                lista[i] = new.copy()
-            else:
-                probability = math.e**(current_collision - newest_collision)
-                rand = random.uniform(0, 1)
-                if rand <= probability:
-                    print("aqui")
-                    lista.append(new)
-        if solved:
-            break
-
-'''def explorer(size):
     current = initial_generate(size)
     while True:
         current_collision = cost_collision(current, size)
@@ -79,6 +54,6 @@ def explorer(size):
             probability = math.exp(current_collision - newest_collision)
             rand = random.uniform(0, 1)
             if rand <= probability:
-                current = new.copy()'''
+                current = new.copy()
 
 explorer(size)
