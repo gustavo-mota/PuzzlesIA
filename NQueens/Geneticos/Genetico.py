@@ -107,13 +107,6 @@ def queens_generate(number, population):
         population.population.append(Individual(population.size, sort_chromosome(population.size)))
 
 
-'''populacao = Population(4, 4)
-queens_generate(4, populacao)
-for i in range(populacao.size):
-    populacao.population[i].print_chromossome()
-    print(cost_collision(populacao.population[i]))'''
-
-
 def explore(number, size, iterations):
     population = Population(size, number)
     queens_generate(number, population)
